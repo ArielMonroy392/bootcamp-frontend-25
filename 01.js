@@ -1,28 +1,23 @@
-//  Ejemplo de uso:
-// const numbers = [1, 2, 3, 4, 5, 6];
+//Exercise Description
+// Create a function called customFilter that works like the built-in Array.prototype.filter.
+// The function should:
+// Take an array and a callback function as arguments.
+// Return a new array with the elements that pass the test implemented by the callback.
 
-// const evenNumbers = customFilter(numbers, function(n) {
-//   return n % 2 === 0;
-// });
+//Example
+const numbers = [1, 2, 3, 4, 5, 6];
 
-// console.log(evenNumbers); // [2, 4, 6]
+const evenNumbers = customFilter(numbers, function (n) {
+  return n % 2 === 0;
+});
 
-// Solution:
-// function customFilter(array, callback) {
-//   const result = [];
-//   for (let i = 0; i < array.length; i++) {
-//     if (callback(array[i])) {
-//       result.push(array[i]);
-//     }
-//   }
-//   return result;
-// }
+console.log(evenNumbers); // [2, 4, 6]
 
-// // Ejemplo de uso:
-// const numbers = [1, 2, 3, 4, 5, 6];
-
-// const evenNumbers = customFilter(numbers, function(n) {
-//   return n % 2 === 0;
-// });
-
-// console.log(evenNumbers); // [2, 4, 6]
+// Solution
+function customFilter(array, callback) {
+  const result = [];
+  for (const item of array) {
+    if (callback(item)) result.push(item);
+  }
+  return result;
+}
