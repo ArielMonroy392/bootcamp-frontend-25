@@ -1,13 +1,11 @@
 import './App.css'
-import Seat from './components/Seat'
+import Cinema from './components/Cinema'
 
 function App() {
 
 
   return (
-    <>
-      <Seat row={1} number={10} onClick={(row, number, available) => alert(`Row: ${row}, Number: ${number}, isAvailable: ${available}`)}></Seat>
-    </>
+    <Cinema rows={5} seatPerRow={7} />
   )
 }
 
