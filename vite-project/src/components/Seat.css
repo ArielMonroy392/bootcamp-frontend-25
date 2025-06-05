@@ -1,12 +1,36 @@
 .seat {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.2s ease, background-color 0.3s ease-in-out, box-shadow 0.3s ease;
+  cursor: pointer;
+  user-select: none;
 }
 
 .seat-available {
-  background-color: red;
+  background: linear-gradient(to bottom right, #6c757d, #495057); 
 }
 
-.seat-ocupped {
-  background-color: green;
+.seat-available:hover {
+  background: linear-gradient(to bottom right, #343a40, #212529);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(108, 117, 125, 0.5);
+}
+
+.seat-occupied {
+  background: linear-gradient(to bottom right, #007bff, #0056b3);
+}
+
+.seat-occupied:hover {
+  background: linear-gradient(to bottom right, #004085, #002752);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
 }
