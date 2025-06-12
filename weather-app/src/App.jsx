@@ -5,7 +5,7 @@ import WeatherInfo from './components/molecules/WeatherInfo'
 
 function App() {
   const inputRef = useRef(null)
-  const [history, setHistory] = useState([])
+  const [history, setHistory] = useState({})
   const [currentWeather, setCurrentWeather] = useState({})
   const mockWeatherData = {
     'New York': {
@@ -31,9 +31,14 @@ function App() {
     if (!weather) {
       alert("We dont know that city 😰")
     } else {
-      setHistory((prev) => ([...prev, weather]))
+
+      setHistory((prev) => {
+        prev[city] = weather
+        return { ...prev }
+      })
       setCurrentWeather(weather)
       console.log(weather)
+      console.log(history)
     }
   }
   return (
