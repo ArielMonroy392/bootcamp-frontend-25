@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import './App.css'
 import Input from './components/atoms/input'
+import WeatherInfo from './components/molecules/WeatherInfo'
 
 function App() {
   const inputRef = useRef(null)
@@ -39,11 +40,7 @@ function App() {
     <>
       <Input ref={inputRef} placeholder={"Select your city"} />
       <button onClick={onSearch}>Search</button>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <span>Temperature: {currentWeather.temperature}</span>
-        <span>Humidity: {currentWeather.humidity}</span>
-        <span>Wind Speed: {currentWeather.windSpeed}</span>
-      </div>
+      <WeatherInfo city={currentWeather} />
     </>
   )
 }
