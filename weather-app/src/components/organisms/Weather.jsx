@@ -55,7 +55,9 @@ export default function Weather() {
       <div style={{ display: "flex", gap: "10px" }}>
         <Input ref={inputRef} placeholder={"Select your city"} />
         <Button onClick={onSearch}>Search</Button>
-        <Button onClick={cleanHistory} type="clean">Clean</Button>
+        {
+          (Object.keys(history).length > 0) && <Button onClick={cleanHistory} type="clean">Clean</Button>
+        }
       </div>
       <WeatherHistory history={history} onClick={(city) => { setCurrentWeather(city) }}></WeatherHistory>
       <WeatherInfo city={currentWeather} />
