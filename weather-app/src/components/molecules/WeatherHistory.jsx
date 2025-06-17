@@ -1,3 +1,5 @@
+import Button from "../atoms/Button"
+
 export default function WeatherHistory({ history, onClick }) {
 
   const handleClick = (city) => {
@@ -16,7 +18,7 @@ export default function WeatherHistory({ history, onClick }) {
         history && Object.keys(history).map(
           (city, index) => (
             <li key={index}>
-              <button onClick={() => { handleClick(city) }}>{city}</button>
+              <Button onClick={() => { handleClick(city) }}>{city}</Button>
             </li>
           )
         )

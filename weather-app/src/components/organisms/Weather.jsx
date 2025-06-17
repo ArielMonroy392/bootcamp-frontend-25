@@ -3,6 +3,7 @@ import Input from "../atoms/Input"
 import Text from "../atoms/Text"
 import WeatherHistory from "../molecules/WeatherHistory";
 import WeatherInfo from "../molecules/WeatherInfo";
+import Button from "../atoms/Button";
 
 export default function Weather() {
   const inputRef = useRef(null)
@@ -46,7 +47,7 @@ export default function Weather() {
     <>
       <div style={{ display: "flex", gap: "10px" }}>
         <Input ref={inputRef} placeholder={"Select your city"} />
-        <button onClick={onSearch}>Search</button>
+        <Button onClick={onSearch}>Search</Button>
       </div>
       <WeatherHistory history={history} onClick={(city) => { setCurrentWeather(city) }}></WeatherHistory>
       <WeatherInfo city={currentWeather} />
