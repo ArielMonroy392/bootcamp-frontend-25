@@ -43,11 +43,19 @@ export default function Weather() {
       console.log(history)
     }
   }
+
+  const cleanHistory = () => {
+    setCurrentWeather({})
+    setHistory({})
+    inputRef.current.value = ""
+    inputRef.current.focus()
+  }
   return (
     <>
       <div style={{ display: "flex", gap: "10px" }}>
         <Input ref={inputRef} placeholder={"Select your city"} />
         <Button onClick={onSearch}>Search</Button>
+        <Button onClick={cleanHistory}>Clean</Button>
       </div>
       <WeatherHistory history={history} onClick={(city) => { setCurrentWeather(city) }}></WeatherHistory>
       <WeatherInfo city={currentWeather} />
