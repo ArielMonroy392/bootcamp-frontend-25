@@ -31,7 +31,7 @@ export default function Weather() {
     const city = inputRef.current.value
     const weather = mockWeatherData[city]
     if (!weather) {
-      alert("We don't know that city 😰")
+      alert("City not found 😰")
     } else {
 
       setHistory((prev) => {
@@ -55,7 +55,7 @@ export default function Weather() {
       <div style={{ display: "flex", gap: "10px" }}>
         <Input ref={inputRef} placeholder={"Select your city"} />
         <Button onClick={onSearch}>Search</Button>
-        <Button onClick={cleanHistory}>Clean</Button>
+        <Button onClick={cleanHistory} type="clean">Clean</Button>
       </div>
       <WeatherHistory history={history} onClick={(city) => { setCurrentWeather(city) }}></WeatherHistory>
       <WeatherInfo city={currentWeather} />
