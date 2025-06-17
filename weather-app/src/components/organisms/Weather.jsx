@@ -60,7 +60,9 @@ export default function Weather() {
         }
       </div>
       <WeatherHistory history={history} onClick={(city) => { setCurrentWeather(city) }}></WeatherHistory>
-      <WeatherInfo city={currentWeather} />
+      {
+        Object.keys(currentWeather).length > 0 && <WeatherInfo city={currentWeather} />
+      }
     </>
   )
 
