@@ -1,4 +1,4 @@
-import {  useRef, useReducer } from 'react';
+import { useRef, useReducer } from 'react';
 import './App.css';
 import Input from './components/atoms/Input';
 import Button from './components/atoms/Button';
@@ -6,7 +6,7 @@ import TaskCard from './components/molecules/TaskCard';
 
 function tasksReducer(tasks, action) {
   if (action.type === 'add') {
-    return [...tasks, { id: action.id, name: action.name, isEditing: action.isEditing, isCompleted: action.isCompleted  }]
+    return [...tasks, { id: action.id, name: action.name, isEditing: action.isEditing, isCompleted: action.isCompleted }]
   }
   if (action.type === 'edit') {
     return tasks.map((t) => (t.id === action.task.id ? action.task : t))
@@ -34,23 +34,6 @@ function App() {
   const [tasks, dispatch] = useReducer(tasksReducer, [])
   const inputRef = useRef(null);
 
-  const addTask = (name) => {
-    dispatch({
-      type: 'add',
-      id: Math.random(),
-      name: name,
-      isCompleted: false,
-      isEditing: false,
-    })
-  };
-
-  const editTask = (task) => {
-    dispatch({
-      type: 'edit',
-      task: task
-    })
-  };
-
   const submitTask = () => {
     const value = inputRef.current?.value;
     if (!isValidTask(value)) {
@@ -60,15 +43,25 @@ function App() {
     const editingTask = tasks.find((t) => t.isEditing)
     console.log(editingTask)
     if (editingTask) {
-      editTask({ ...editingTask, name: value, isEditing: false });
+      dispatch({
+        type: 'edit',
+        task: { ...editingTask, name: value, isEditing: false }
+      })
+
     } else {
-      addTask(value);
+      dispatch({
+        type: 'add',
+        id: Math.random(),
+        name: value,
+        isCompleted: false,
+        isEditing: false,
+      })
     }
     inputRef.current.value = ""
   };
 
   const handleEditTask = (task) => {
-    dispatch({type: "setEditing", id: task.id})
+    dispatch({ type: "setEditing", id: task.id })
     if (inputRef.current) inputRef.current.value = task.name;
   };
 
@@ -101,7 +94,7 @@ function App() {
           <Button onClick={submitTask}>
             Submit
           </Button>
-         
+
         </div>
       </div>
       <ul style={{ width: "100%", padding: 0 }}>
