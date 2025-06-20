@@ -33,7 +33,6 @@ function tasksReducer(tasks, action) {
 
 function App() {
   const [tasks, dispatch] = useReducer(tasksReducer, [])
-  // const [selectedTask, setSelectedTask] = useState(null);
   const inputRef = useRef(null);
 
   const addTask = (name) => {
