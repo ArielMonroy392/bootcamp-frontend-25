@@ -9,7 +9,6 @@ function tasksReducer(tasks, action) {
     return [...tasks, { id: action.id, name: action.name, isEditing: action.isEditing, isCompleted: action.isCompleted  }]
   }
   if (action.type === 'edit') {
-    console.log(action)
     return tasks.map((t) => (t.id === action.task.id ? action.task : t))
   }
   if (action.type === 'delete') {
@@ -65,7 +64,7 @@ function App() {
     } else {
       addTask(value);
     }
-    clearInput();
+    inputRef.current.value = ""
   };
 
   const handleEditTask = (task) => {
@@ -91,10 +90,6 @@ function App() {
 
   const isValidTask = (value) => {
     return value !== "";
-  };
-
-  const clearInput = () => {
-    if (inputRef.current) inputRef.current.value = "";
   };
 
   return (
