@@ -1,17 +1,15 @@
-import { useState } from "react";
 import Button from "../atoms/Button";
 import CheckBox from "../atoms/CheckBox";
 import "./TaskCard.css"
 
-export default function TaskCard({ task, onEdit, onDelete }) {
-  const [isDone, setIsDone] = useState(false)
+export default function TaskCard({ task, onComplete, onEdit, onDelete }) {
 
   return (
     <div className="card" >
-      <CheckBox value={isDone} onChange={setIsDone}></CheckBox>
-      <span style={{textDecoration: isDone ? "line-through" : ''}}>{task.name}</span>
+      <CheckBox value={task.isCompleted} onChange={(e)=>{onComplete(task,e)}}></CheckBox>
+      <span style={{textDecoration: task.isCompleted ? "line-through" : ''}}>{task.name}</span>
       {
-        !isDone && (<>
+        !task.isCompleted && (<>
           <Button onClick={() => { onEdit(task) }}>Edit</Button>
           <Button onClick={() => { onDelete(task) }}>Delete</Button></>)
       }
