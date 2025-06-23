@@ -12,23 +12,14 @@
  * Submit your code once it is complete.
  */
 
-const languages = ['JavaScript', 'Python'];
+import { MainSection } from "./components/molecules/MainSection";
 
 export default function App() {
- return (
-   <>
-     <MainSection />
-   </>
- );
+  return (
+    <MainSection />
+  );
 }
 
 
-function MainSection() {
- return (
-   <div>
-     <p id="favoriteLanguage">favorite programing language: {languages[0]}</p>
-     <button id="changeFavorite">toggle language</button>
-   </div>
- )
-}
+
 
