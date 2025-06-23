@@ -8,11 +8,14 @@ const FavoriteContext = createContext(null);
 export const FavoriteProvider = ({children}) => {
 
   const [languageIndex, setLanguageIndex] = useState(0);
+
+  const languages = ["Javascript","Python","C#", "Java", "Cobol","Ruby"]
+
   const changeIndex = () => {
-    setLanguageIndex((prev) => { return (prev + 1) % 2})
+    setLanguageIndex((prev) => { return (prev + 1) % languages.length})
   }
 
-  return <FavoriteContext.Provider value={{languageIndex, changeIndex}}>
+  return <FavoriteContext.Provider value={{languageIndex, changeIndex, languages}}>
     {children}
   </FavoriteContext.Provider>
 }
