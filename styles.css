@@ -1,0 +1,66 @@
+.board {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: row;
+}
+
+.left {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  background-color: #f0f0f0;
+  padding: 10px;
+  row-gap: 10px;
+  grid-auto-flow: column;
+  direction: rtl;
+}
+
+.center {
+
+  display: grid;
+  grid-template-rows: 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  background-color: #ffffff;
+  padding: 80px 10px;
+  gap:15px;
+}
+
+.right {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  background-color: #f0f0f0;
+  padding: 10px;
+  row-gap: 10px;
+  grid-auto-flow: column;
+}
+
+.card {
+  aspect-ratio: 2/3;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-right: 10px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.enemy.left > .card:nth-child(4) {
+  grid-row: 3;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  rotate: 180deg;
+
+}
+
