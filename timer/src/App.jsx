@@ -27,6 +27,7 @@ function App() {
   }
 
   const startTimer = () => {
+    if (isRunning) return
     clearTimeout(timeoutRef.current)
     setIsRunning(true)
   }
