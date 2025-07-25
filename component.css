@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  border: .25rem solid #000000;
+}
+
+.logo {
+  flex: 1 0 auto;
+  object-fit: contain;
+}
+
+.user-container {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  padding: 0.25rem;
+  min-height: 500px;
+}
+
+.avatar {
+  flex: 1 0 30%;
+  border-radius: 2rem;
+  margin: 1.5rem;
+  object-fit: cover;
+}
+
+.text {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.position-container {
+  background-color: red;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
